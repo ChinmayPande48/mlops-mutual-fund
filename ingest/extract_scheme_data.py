@@ -4,7 +4,7 @@ import os
 import json
 import pandas as pd
 import time
-from extract_scheme_codes import get_scheme_codes_async 
+from extract_scheme_code import get_scheme_codes_async 
 
 OUTPUT_DIR = "D:\data"
 
@@ -18,6 +18,7 @@ async def get_schemes_info():
     # Await the async function to get the scheme codes
     # THIS IS THE CRITICAL LINE TO ENSURE 'await' IS USED
     scheme_codes = await get_scheme_codes_async(scheme_url)
+    #print(f'Total codes:{len(scheme_codes)}')
     
     # Create the output directory if it doesn't exist
     os.makedirs(OUTPUT_DIR, exist_ok=True)

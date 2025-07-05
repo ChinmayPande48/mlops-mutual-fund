@@ -38,7 +38,6 @@ async def get_schemes_info():
         # Run all tasks concurrently and wait for them to complete
         await asyncio.gather(*tasks)
         print("All scheme data fetched and saved.")
-
 async def fetch_and_save_scheme_data(session, code,semaphore):
     """
     Fetches NAV data for a single scheme code and saves it to a CSV.
@@ -57,7 +56,7 @@ async def fetch_and_save_scheme_data(session, code,semaphore):
                         #if data["meta"]["scheme_code"] == code:
                     for item in data["data"]: # Iterate over data["data"] as it's a list of dicts
                         if "date" in item and "nav" in item:
-                            nav_tuple = (item["date"], item["nav"])
+                            nav_tuple = (item["scheme_id"],item["date"], item["nav"])
                             nav_list.append(nav_tuple)
                     
                     if nav_list: # Only create DataFrame and save if there is data

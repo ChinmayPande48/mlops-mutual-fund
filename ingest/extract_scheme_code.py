@@ -40,7 +40,7 @@ async def get_scheme_codes_async(api_url):
         
         #print(f" total codes: {len(scheme_codes)}")
         
-"""
+
 
 
 # Example usage (how you would run this asynchronous function)
@@ -53,5 +53,4 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 
-36945 schemes
-"""
+#36945 schemes

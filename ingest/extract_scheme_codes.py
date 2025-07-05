@@ -24,7 +24,9 @@ async def get_scheme_codes_async(api_url):
                         if isinstance(item, dict) and "schemeCode" in item:
                             scheme_codes.append(item["schemeCode"])
                 return scheme_codes
-
+        #except:
+            #pass
+        
         except aiohttp.ClientError as e:
             print(f"Error fetching data from API: {e}")
             return None
@@ -35,12 +37,21 @@ async def get_scheme_codes_async(api_url):
             print(f"An unexpected error occurred: {e}")
             return None
 
+        
+        #print(f" total codes: {len(scheme_codes)}")
+        
+"""
+
+
 # Example usage (how you would run this asynchronous function)
 async def main():
     api_url = "https://api.mfapi.in/mf" # Replace with your actual API URL
     scheme_codes = await get_scheme_codes_async(api_url)
-    if scheme_codes:
-        print("Scheme Codes:", scheme_codes)
+    #print(f" total codes: {len(scheme_codes)}")
+    return scheme_codes
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+36945 schemes
+"""
